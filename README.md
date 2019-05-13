@@ -26,6 +26,20 @@ upper_case_full_names = []
 ```
 
 ### Answer
+```rb
+upper_case_full_names = []
+
+students.each do |name|
+    full_name = ""
+    space = " "
+    name.each do |k,v|
+        full_name = full_name + v.upcase + space
+        space = ""
+    end
+    upper_case_full_names.push(full_name)
+end
+puts upper_case_full_names
+```
 
 ```rb
 
