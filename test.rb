@@ -1,27 +1,79 @@
-students = [
+people = [
   {
-      first_name: 'Ahmed',
-      last_name: 'Althagafi'
+      name: 'Jawaher',
+      transactions: [
+          {
+              type: 'COFFEE',
+              amount: 7.43
+          },
+          {
+              type: 'TACOS',
+              amount: 14.65
+          },
+          {
+              type: 'COFFEE',
+              amount: 4.43
+          }
+      ]
   },
   {
-      first_name: 'Norah',
-      last_name: 'Alshehri',
+      name: 'Nader',
+      transactions: [
+          {
+              type: 'BIKES',
+              amount: 800.00
+          },
+          {
+              type: 'TACOS',
+              amount: 14.65
+          },
+          {
+              type: 'COFFEE',
+              amount: 4.43
+          }
+      ]
   },
   {
-      first_name: 'Haneen',
-      last_name: 'Alghamdi',
+      name: 'Samah',
+      transactions: [
+          {
+              type: 'COFFEE',
+              amount: 7.43
+          },
+          {
+              type: 'COFFEE',
+              amount: 100.00
+          },
+          {
+              type: 'COFFEE',
+              amount: 4.43
+          }
+      ]
   }
 ]
 
-upper_case_full_names = []
+coffee_average_per_person = []
 
-students.each do |name|
-    full_name = ""
-    space = " "
-    name.each do |k,v|
-        full_name = full_name + v.upcase + space
-        space = ""
+people.each do |object|
+    
+    object[:transactions].each do |objecta|
+        total = 0
+        value = false
+        count = 0
+        objecta.each do |k,v|
+            if k == 'type'&& v == 'COFFEE'
+                value = true
+                count+=1
+                p count
+            elsif k == 'amount' && value == true
+                total = v + total
+                value = false
+                p total
+            end
+        end
+        if total>0
+            coffee_average_per_person.push(total/count)
+        end
     end
-    upper_case_full_names.push(full_name)
 end
-puts upper_case_full_names
+p coffee_average_per_person

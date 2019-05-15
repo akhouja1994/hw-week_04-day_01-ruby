@@ -97,7 +97,10 @@ first_order_for_each_user = []
 ### Answer
 
 ```rb
-
+users.each do |object|
+    first_order_for_each_user.push(object[:orders][0])
+end
+p first_order_for_each_user
 [ {description: "a bike"}, {description: "bees"}, {description: "a MacBook"} ]
 ```
 
